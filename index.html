@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MisFinanzas | Control de gastos e ingresos personales</title>
+  <meta name="description" content="MisFinanzas: registrá tus ingresos y gastos, definí metas de ahorro y visualizá informes de tu economía personal.">
+  <link rel="stylesheet" href="recursos/style.css">
+</head>
+<body>
+
+  <header class="sitio-header">
+    <div class="contenedor">
+      <p class="logo">Mis<span>Finanzas</span></p>
+
+      <button type="button" id="btn-menu" class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="menu-principal">
+        <span class="menu-toggle__barra"></span>
+        <span class="menu-toggle__barra"></span>
+        <span class="menu-toggle__barra"></span>
+      </button>
+
+      <nav class="nav-principal" aria-label="Navegación principal">
+        <ul id="menu-principal">
+          <li><a href="index.html" aria-current="page">Inicio</a></li>
+          <li><a href="dashboard.html">Mis movimientos</a></li>
+          <li><a href="reportes.html">Metas y reportes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+
+    <section id="propuesta-valor" class="hero">
+      <h1>Organizá tu plata sin complicarte</h1>
+      <p>
+        MisFinanzas es una herramienta simple para registrar tus ingresos y gastos del día a día,
+        ponerte metas de ahorro realistas y entender en qué se te va la plata cada mes, con
+        informes claros y fáciles de leer.
+      </p>
+      <a href="dashboard.html" class="boton-cta">Ir a mis movimientos</a>
+    </section>
+
+    <aside id="por-que-usarla" class="ventajas" aria-label="Ventajas de la aplicación">
+      <h2>¿Por qué llevar tus finanzas acá?</h2>
+      <ul>
+        <li>Registrás ingresos y gastos en segundos, sin planillas complicadas.</li>
+        <li>Definís metas de ahorro y seguís tu progreso mes a mes.</li>
+        <li>Tus datos quedan guardados en este navegador, listos cuando volvés a entrar.</li>
+      </ul>
+    </aside>
+
+    <section id="acceso" class="acceso">
+      <h2>Ingresá a tu cuenta</h2>
+      <p class="nota-acceso">
+        Acceso de demostración: los datos se guardan localmente en tu navegador (no hay un
+        servidor de autenticación real detrás).
+      </p>
+
+      <form id="form-login" novalidate>
+        <div class="campo">
+          <label for="login-email">Correo electrónico</label>
+          <input
+            type="email"
+            id="login-email"
+            name="email"
+            placeholder="tu@correo.com"
+            required
+          >
+        </div>
+
+        <div class="campo">
+          <label for="login-password">Contraseña</label>
+          <input
+            type="password"
+            id="login-password"
+            name="password"
+            placeholder="Ingresá tu contraseña"
+            minlength="4"
+            required
+          >
+        </div>
+
+        <button type="submit" class="boton-cta">Entrar</button>
+        <p id="login-feedback" class="feedback" aria-live="polite"></p>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="sitio-footer">
+    <div class="contenedor footer-columnas">
+      <div class="footer-col">
+        <h3>Equipo de desarrollo</h3>
+        <p>Joaquín Sangiorgi</p>
+        <p>Tecnicatura Universitaria en Programación de Sistemas</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Mapa del sitio</h3>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="dashboard.html">Mis movimientos</a></li>
+          <li><a href="reportes.html">Metas y reportes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Información institucional</h3>
+        <p>UCES &mdash; Programación Web I</p>
+        <p>Proyecto integrador de cursada</p>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; 2026 MisFinanzas. Proyecto académico.</p>
+  </footer>
+
+  <script src="recursos/funciones.js" defer></script>
+</body>
+</html>

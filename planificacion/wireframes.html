@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wireframes — MisFinanzas (Fase 1)</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6f8;
+    color: #1f2933;
+    margin: 0;
+    padding: 2rem 1.5rem 4rem;
+  }
+  h1 { text-align: center; margin-bottom: .25rem; }
+  p.subtitulo { text-align: center; color: #52606d; margin-top: 0; margin-bottom: 2.5rem; }
+
+  .pagina-bloque {
+    max-width: 1100px;
+    margin: 0 auto 3.5rem;
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  }
+  .pagina-bloque h2 {
+    border-bottom: 2px solid #2e86c1;
+    padding-bottom: .5rem;
+  }
+
+  .par-wireframes {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  .wireframe-card { text-align: center; }
+  .wireframe-card p.etiqueta {
+    font-weight: bold;
+    margin-bottom: .5rem;
+    color: #123c5c;
+  }
+
+  /* ---- Wireframe desktop ---- */
+  .wf-desktop {
+    width: 560px;
+    max-width: 80vw;
+    border: 2px solid #123c5c;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #eef2f5;
+  }
+  /* ---- Wireframe mobile ---- */
+  .wf-mobile {
+    width: 200px;
+    border: 2px solid #123c5c;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #eef2f5;
+    padding: 6px;
+  }
+  .wf-mobile .wf-inner {
+    border: 1px solid #9aa5b1;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .caja {
+    border: 1px dashed #7b8794;
+    background: #ffffff;
+    padding: .5rem;
+    font-size: .7rem;
+    color: #334e68;
+    text-align: center;
+  }
+  .caja strong { display: block; font-size: .72rem; }
+
+  .wf-header { background: #d6e4f0; }
+  .wf-nav-desktop { display: flex; justify-content: space-between; align-items: center; }
+  .wf-nav-desktop .links { display: flex; gap: .5rem; }
+  .wf-nav-desktop .links span {
+    background: #c1d9ec; padding: .2rem .5rem; border-radius: 3px; font-size: .65rem;
+  }
+
+  .wf-nav-mobile { display: flex; justify-content: space-between; align-items: center; }
+  .wf-hamburguesa {
+    width: 18px; height: 14px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .wf-hamburguesa span { display: block; height: 2px; background: #123c5c; }
+
+  .wf-main { display: flex; flex-direction: column; gap: 6px; padding: 8px; }
+  .wf-fila { display: flex; gap: 6px; }
+  .wf-fila .caja { flex: 1; }
+
+  .wf-footer { background: #d6e4f0; display: flex; gap: 6px; padding: 8px; }
+  .wf-footer .caja { flex: 1; }
+
+  .wf-mobile .wf-fila { flex-direction: column; }
+</style>
+</head>
+<body>
+
+  <h1>Bocetos / Wireframes — MisFinanzas</h1>
+  <p class="subtitulo">Fase 1 — Diseño visual conceptual (versión Desktop y Mobile de las 3 páginas)</p>
+
+  <!-- ===================== INDEX ===================== -->
+  <section class="pagina-bloque">
+    <h2>1. index.html — Inicio / Acceso</h2>
+    <div class="par-wireframes">
+
+      <div class="wireframe-card">
+        <p class="etiqueta">Desktop</p>
+        <div class="wf-desktop">
+          <div class="caja wf-header">
+            <div class="wf-nav-desktop">
+              <strong>LOGO</strong>
+              <div class="links"><span>Inicio</span><span>Movimientos</span><span>Reportes</span></div>
+            </div>
+          </div>
+          <div class="wf-main">
+            <div class="wf-fila">
+              <div class="caja" style="flex:2;"><strong>HERO</strong>Propuesta de valor + botón CTA</div>
+              <div class="caja"><strong>ASIDE</strong>Ventajas de usar la app</div>
+            </div>
+            <div class="caja"><strong>FORM LOGIN</strong>Email / Contraseña / Botón "Entrar"</div>
+          </div>
+          <div class="wf-footer">
+            <div class="caja">Equipo</div>
+            <div class="caja">Mapa del sitio</div>
+            <div class="caja">Institucional</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wireframe-card">
+        <p class="etiqueta">Mobile</p>
+        <div class="wf-mobile"><div class="wf-inner">
+          <div class="caja wf-header">
+            <div class="wf-nav-mobile">
+              <strong>LOGO</strong>
+              <div class="wf-hamburguesa"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="wf-main">
+            <div class="caja"><strong>HERO</strong>Texto + CTA</div>
+            <div class="caja"><strong>ASIDE</strong>Ventajas</div>
+            <div class="caja"><strong>FORM LOGIN</strong>Email / Pass</div>
+          </div>
+          <div class="wf-footer wf-fila">
+            <div class="caja">Equipo</div>
+            <div class="caja">Mapa</div>
+            <div class="caja">Institucional</div>
+          </div>
+        </div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== DASHBOARD ===================== -->
+  <section class="pagina-bloque">
+    <h2>2. dashboard.html — Mis movimientos</h2>
+    <div class="par-wireframes">
+
+      <div class="wireframe-card">
+        <p class="etiqueta">Desktop</p>
+        <div class="wf-desktop">
+          <div class="caja wf-header">
+            <div class="wf-nav-desktop">
+              <strong>LOGO</strong>
+              <div class="links"><span>Inicio</span><span>Movimientos</span><span>Reportes</span></div>
+            </div>
+          </div>
+          <div class="wf-main">
+            <div class="wf-fila">
+              <div class="caja">Saldo</div>
+              <div class="caja">Ingresos</div>
+              <div class="caja">Gastos</div>
+            </div>
+            <div class="wf-fila">
+              <div class="caja" style="flex:2;"><strong>FORM MOVIMIENTO</strong>Descripción / Monto / Categoría / Fecha / Tipo</div>
+              <div class="caja"><strong>ASIDE</strong>Tip del día</div>
+            </div>
+            <div class="caja"><strong>HISTORIAL</strong>Buscador (search) + tabla de movimientos</div>
+          </div>
+          <div class="wf-footer">
+            <div class="caja">Equipo</div>
+            <div class="caja">Mapa del sitio</div>
+            <div class="caja">Institucional</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wireframe-card">
+        <p class="etiqueta">Mobile</p>
+        <div class="wf-mobile"><div class="wf-inner">
+          <div class="caja wf-header">
+            <div class="wf-nav-mobile">
+              <strong>LOGO</strong>
+              <div class="wf-hamburguesa"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="wf-main">
+            <div class="caja">Saldo</div>
+            <div class="caja">Ingresos</div>
+            <div class="caja">Gastos</div>
+            <div class="caja"><strong>FORM</strong>Nuevo movimiento</div>
+            <div class="caja"><strong>ASIDE</strong>Tip del día</div>
+            <div class="caja"><strong>HISTORIAL</strong>Buscador + tabla (scroll)</div>
+          </div>
+          <div class="wf-footer wf-fila">
+            <div class="caja">Equipo</div>
+            <div class="caja">Mapa</div>
+            <div class="caja">Institucional</div>
+          </div>
+        </div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== REPORTES ===================== -->
+  <section class="pagina-bloque">
+    <h2>3. reportes.html — Metas y reportes</h2>
+    <div class="par-wireframes">
+
+      <div class="wireframe-card">
+        <p class="etiqueta">Desktop</p>
+        <div class="wf-desktop">
+          <div class="caja wf-header">
+            <div class="wf-nav-desktop">
+              <strong>LOGO</strong>
+              <div class="links"><span>Inicio</span><span>Movimientos</span><span>Reportes</span></div>
+            </div>
+          </div>
+          <div class="wf-main">
+            <div class="wf-fila">
+              <div class="caja"><strong>META</strong>Barra de progreso + form nueva meta</div>
+              <div class="caja"><strong>ASIDE</strong>Cómo elegir una meta</div>
+            </div>
+            <div class="caja"><strong>GRÁFICO</strong>Barras: ingresos vs. gastos por mes</div>
+            <div class="caja"><strong>FORM CONTACTO</strong>Nombre / Email / Teléfono / Mensaje</div>
+          </div>
+          <div class="wf-footer">
+            <div class="caja">Equipo</div>
+            <div class="caja">Mapa del sitio</div>
+            <div class="caja">Institucional</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wireframe-card">
+        <p class="etiqueta">Mobile</p>
+        <div class="wf-mobile"><div class="wf-inner">
+          <div class="caja wf-header">
+            <div class="wf-nav-mobile">
+              <strong>LOGO</strong>
+              <div class="wf-hamburguesa"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="wf-main">
+            <div class="caja"><strong>META</strong>Progreso + form</div>
+            <div class="caja"><strong>ASIDE</strong>Consejo</div>
+            <div class="caja"><strong>GRÁFICO</strong>Barras apiladas</div>
+            <div class="caja"><strong>FORM CONTACTO</strong>Nombre/Email/Tel/Msj</div>
+          </div>
+          <div class="wf-footer wf-fila">
+            <div class="caja">Equipo</div>
+            <div class="caja">Mapa</div>
+            <div class="caja">Institucional</div>
+          </div>
+        </div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <p style="text-align:center; color:#7b8794; font-size:.85rem;">
+    Nota: estos bocetos representan la distribución de bloques (no el diseño visual final). El diseño visual definitivo se implementa en la Fase 2 con CSS3 y Flexbox.
+  </p>
+
+</body>
+</html>
