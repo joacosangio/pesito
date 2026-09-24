@@ -41,15 +41,20 @@ Tiene ingresos variables (changas, proyectos freelance) y gastos irregulares. Ne
 **Persona 3 — "Roberto, 55 años, usuario con poca familiaridad tecnológica"**
 Quiere empezar a controlar sus gastos pero se frustra con aplicaciones complejas. → **prioriza una interfaz simple, textos claros, botones grandes y mensajes de error entendibles (no técnicos)**.
 
-Estos tres perfiles influyen directamente en decisiones de usabilidad: formularios cortos con validación visual inmediata, textos en lenguaje simple, navegación de máximo 3 secciones, y diseño mobile-first que se resuelve en la Fase 2.
+Estos tres perfiles influyen directamente en decisiones de usabilidad: formularios cortos con validación visual inmediata, textos en lenguaje simple, accesos directos a las cuatro acciones principales desde el home, y diseño mobile-first que se resuelve en la Fase 2.
 
 ### 4. Alcance Funcional de las Páginas
 
 | Página | Contenido y funcionalidad |
 |---|---|
-| **`index.html`** | Landing con la propuesta de valor del sitio y un formulario de acceso (login simulado del lado del cliente, sin backend real). Punto de entrada obligatorio del sitio. |
-| **`dashboard.html`** | Página principal funcional: resumen de saldo/ingresos/gastos del mes, formulario para registrar un nuevo movimiento (monto, descripción, categoría, fecha, tipo), y un historial de movimientos con buscador. |
-| **`reportes.html`** | Definición y seguimiento de metas de ahorro, informe visual comparando ingresos y gastos por mes, y un formulario de contacto/soporte. |
+| **`index.html`** | Punto de entrada obligatorio del sitio. Muestra la propuesta de valor (slogan) y, debajo, dos formularios: iniciar sesión y crear cuenta (acceso simulado del lado del cliente, sin backend real). Al enviarlos, el usuario pasa a `inicio.html`. |
+| **`inicio.html`** | Home del usuario logueado. Repite la propuesta de valor y ofrece cuatro accesos rápidos bien visibles: cargar un gasto, cargar un ingreso, ver ahorros y ver reportes. Incluye un resumen del mes (saldo, ingresos y gastos). |
+| **`gastos.html`** | Formulario para cargar un gasto (descripción, monto, categoría, fecha), total gastado en el mes e historial de gastos con buscador. |
+| **`ingresos.html`** | Formulario para cargar un ingreso (descripción, monto, categoría, fecha), total ingresado en el mes e historial de ingresos con buscador. |
+| **`ahorros.html`** | Meta de ahorro actual con su barra de progreso y formulario para definir una nueva meta. |
+| **`reportes.html`** | Informe visual que compara ingresos y gastos por mes, gastos agrupados por categoría y un formulario de contacto/soporte. |
+
+**Flujo de navegación:** `index.html` (slogan + login/registro) → `inicio.html` (home con accesos rápidos) → `gastos.html` / `ingresos.html` / `ahorros.html` / `reportes.html`. Todas las páginas internas comparten el mismo menú de navegación, con un enlace para cerrar sesión que vuelve a `index.html`.
 
 ### 5. Justificación Tecnológica
 
@@ -75,8 +80,8 @@ Esta separación permite que cada archivo pueda modificarse de forma independien
    │    (Navegador Web)     │                                   │         vía MAMP             │
    │                         │                                   │                               │
    │  HTML + CSS + JS        │──────  Petición HTTP (GET)  ─────▶│  Localiza el recurso en el    │
-   │  (index/dashboard/      │        http://localhost/...       │  árbol de directorios         │
-   │   reportes .html)       │                                   │  (htdocs/pesito/)             │
+   │  (index/inicio/gastos/  │        http://localhost/...       │  árbol de directorios         │
+   │   ingresos... .html)    │                                   │  (htdocs/pesito/)             │
    │                         │◀─────  Respuesta HTTP (200 OK)  ──│                               │
    │  Renderiza el DOM y      │        + archivo solicitado       │  Devuelve el archivo tal cual  │
    │  ejecuta funciones.js    │        (.html / .css / .js /      │  (sitio estático, sin lógica   │
@@ -99,8 +104,11 @@ Al ser un sitio estático, el servidor Apache actúa únicamente como distribuid
 ```
 pesito/
 ├── index.html                  (Punto de entrada obligatorio del sitio)
-├── dashboard.html               (Página secundaria — registro de movimientos)
-├── reportes.html                  (Página secundaria — metas, informes y contacto)
+├── inicio.html                  (Home del usuario — accesos rápidos)
+├── gastos.html                  (Carga de gastos + historial)
+├── ingresos.html                (Carga de ingresos + historial)
+├── ahorros.html                 (Meta de ahorro y progreso)
+├── reportes.html                (Informes y contacto)
 ├── recursos/
 │   ├── style.css                   (Hoja de estilos CSS externa unificada)
 │   ├── funciones.js                  (Script lógico de comportamiento JavaScript)

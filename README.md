@@ -18,9 +18,12 @@ Joaquín Sangiorgi
 
 ```
 pesito/
-├── index.html              (Landing + acceso)
-├── dashboard.html           (Registro de movimientos)
-├── reportes.html             (Metas de ahorro, informes y contacto)
+├── index.html              (Slogan + login / registro)
+├── inicio.html              (Home con accesos rápidos)
+├── gastos.html              (Carga de gastos + historial)
+├── ingresos.html            (Carga de ingresos + historial)
+├── ahorros.html             (Meta de ahorro)
+├── reportes.html            (Informes y contacto)
 ├── recursos/
 │   ├── style.css             (Hoja de estilos externa unificada)
 │   ├── funciones.js           (Lógica de comportamiento JavaScript)

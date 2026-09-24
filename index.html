@@ -12,20 +12,6 @@
   <header class="sitio-header">
     <div class="contenedor">
       <p class="logo">Pesito</p>
-
-      <button type="button" id="btn-menu" class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="menu-principal">
-        <span class="menu-toggle__barra"></span>
-        <span class="menu-toggle__barra"></span>
-        <span class="menu-toggle__barra"></span>
-      </button>
-
-      <nav class="nav-principal" aria-label="Navegación principal">
-        <ul id="menu-principal">
-          <li><a href="index.html" aria-current="page">Inicio</a></li>
-          <li><a href="dashboard.html">Mis movimientos</a></li>
-          <li><a href="reportes.html">Metas y reportes</a></li>
-        </ul>
-      </nav>
     </div>
   </header>
 
@@ -34,56 +20,92 @@
     <section id="propuesta-valor" class="hero">
       <h1>Organizá tu plata sin complicarte</h1>
       <p>
-        Pesito es una herramienta simple para registrar tus ingresos y gastos del día a día,
-        ponerte metas de ahorro realistas y entender en qué se te va la plata cada mes, con
-        informes claros y fáciles de leer.
+        Registrá tus gastos e ingresos en segundos, ponete metas de ahorro y entendé
+        en qué se te va la plata cada mes.
       </p>
-      <a href="dashboard.html" class="boton-cta">Ir a mis movimientos</a>
     </section>
 
-    <aside id="por-que-usarla" class="ventajas" aria-label="Ventajas de la aplicación">
-      <h2>¿Por qué llevar tus finanzas acá?</h2>
-      <ul>
-        <li>Registrás ingresos y gastos en segundos, sin planillas complicadas.</li>
-        <li>Definís metas de ahorro y seguís tu progreso mes a mes.</li>
-        <li>Tus datos quedan guardados en este navegador, listos cuando volvés a entrar.</li>
-      </ul>
-    </aside>
-
     <section id="acceso" class="acceso">
-      <h2>Ingresá a tu cuenta</h2>
+      <h2>Empezá a usar Pesito</h2>
       <p class="nota-acceso">
         Acceso de demostración: los datos se guardan localmente en tu navegador (no hay un
         servidor de autenticación real detrás).
       </p>
 
-      <form id="form-login" novalidate>
-        <div class="campo">
-          <label for="login-email">Correo electrónico</label>
-          <input
-            type="email"
-            id="login-email"
-            name="email"
-            placeholder="tu@correo.com"
-            required
-          >
-        </div>
+      <article id="iniciar-sesion" class="acceso-panel">
+        <h3>Ya tengo cuenta</h3>
 
-        <div class="campo">
-          <label for="login-password">Contraseña</label>
-          <input
-            type="password"
-            id="login-password"
-            name="password"
-            placeholder="Ingresá tu contraseña"
-            minlength="4"
-            required
-          >
-        </div>
+        <form id="form-login" action="inicio.html" method="get">
+          <div class="campo">
+            <label for="login-email">Correo electrónico</label>
+            <input
+              type="email"
+              id="login-email"
+              name="email"
+              placeholder="tu@correo.com"
+              required
+            >
+          </div>
 
-        <button type="submit" class="boton-cta">Entrar</button>
-        <p id="login-feedback" class="feedback" aria-live="polite"></p>
-      </form>
+          <div class="campo">
+            <label for="login-password">Contraseña</label>
+            <input
+              type="password"
+              id="login-password"
+              name="password"
+              placeholder="Ingresá tu contraseña"
+              minlength="4"
+              required
+            >
+          </div>
+
+          <button type="submit" class="boton-cta">Iniciar sesión</button>
+          <p id="login-feedback" class="feedback" aria-live="polite"></p>
+        </form>
+      </article>
+
+      <article id="registrarse" class="acceso-panel">
+        <h3>Soy nuevo</h3>
+
+        <form id="form-registro" action="inicio.html" method="get">
+          <div class="campo">
+            <label for="registro-nombre">Nombre</label>
+            <input
+              type="text"
+              id="registro-nombre"
+              name="nombre"
+              placeholder="¿Cómo te llamás?"
+              required
+            >
+          </div>
+
+          <div class="campo">
+            <label for="registro-email">Correo electrónico</label>
+            <input
+              type="email"
+              id="registro-email"
+              name="email"
+              placeholder="tu@correo.com"
+              required
+            >
+          </div>
+
+          <div class="campo">
+            <label for="registro-password">Contraseña</label>
+            <input
+              type="password"
+              id="registro-password"
+              name="password"
+              placeholder="Mínimo 4 caracteres"
+              minlength="4"
+              required
+            >
+          </div>
+
+          <button type="submit" class="boton-cta">Crear cuenta</button>
+          <p id="registro-feedback" class="feedback" aria-live="polite"></p>
+        </form>
+      </article>
     </section>
 
   </main>
@@ -94,15 +116,6 @@
         <h3>Equipo de desarrollo</h3>
         <p>Joaquín Sangiorgi</p>
         <p>Tecnicatura Universitaria en Programación de Sistemas</p>
-      </div>
-
-      <div class="footer-col">
-        <h3>Mapa del sitio</h3>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="dashboard.html">Mis movimientos</a></li>
-          <li><a href="reportes.html">Metas y reportes</a></li>
-        </ul>
       </div>
 
       <div class="footer-col">

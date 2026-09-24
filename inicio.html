@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio | Pesito</title>
+  <meta name="description" content="Tu panel de Pesito: cargá gastos e ingresos, mirá tus ahorros y tus reportes.">
+  <link rel="stylesheet" href="recursos/style.css">
+</head>
+<body>
+
+  <header class="sitio-header">
+    <div class="contenedor">
+      <p class="logo"><a href="inicio.html">Pesito</a></p>
+
+      <button type="button" id="btn-menu" class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="menu-principal">
+        <span class="menu-toggle__barra"></span>
+        <span class="menu-toggle__barra"></span>
+        <span class="menu-toggle__barra"></span>
+      </button>
+
+      <nav class="nav-principal" aria-label="Navegación principal">
+        <ul id="menu-principal">
+          <li><a href="inicio.html" aria-current="page">Inicio</a></li>
+          <li><a href="gastos.html">Gastos</a></li>
+          <li><a href="ingresos.html">Ingresos</a></li>
+          <li><a href="ahorros.html">Ahorros</a></li>
+          <li><a href="reportes.html">Reportes</a></li>
+          <li><a href="index.html" class="nav-salir">Cerrar sesión</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+
+    <section id="propuesta-valor" class="hero">
+      <h1>Organizá tu plata sin complicarte</h1>
+      <p>¿Qué querés hacer hoy?</p>
+    </section>
+
+    <section id="acciones" class="acciones" aria-label="Accesos rápidos">
+      <h2>Accesos rápidos</h2>
+
+      <ul class="acciones-lista">
+        <li>
+          <a href="gastos.html" class="accion accion--gasto">
+            <strong>Cargar un gasto</strong>
+            <span>Anotá lo que gastaste y mirá tu historial de gastos.</span>
+          </a>
+        </li>
+        <li>
+          <a href="ingresos.html" class="accion accion--ingreso">
+            <strong>Cargar un ingreso</strong>
+            <span>Registrá sueldos, cobros o changas y su historial.</span>
+          </a>
+        </li>
+        <li>
+          <a href="ahorros.html" class="accion accion--ahorro">
+            <strong>Ver mis ahorros</strong>
+            <span>Seguí el progreso de tu meta de ahorro.</span>
+          </a>
+        </li>
+        <li>
+          <a href="reportes.html" class="accion accion--reporte">
+            <strong>Ver mis reportes</strong>
+            <span>Compará ingresos y gastos mes a mes.</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <aside id="resumen" class="resumen" aria-label="Resumen del mes">
+      <h2>Tu mes en números</h2>
+      <dl class="resumen-datos">
+        <dt>Saldo actual</dt>
+        <dd id="saldo-actual">$ 0,00</dd>
+        <dt>Ingresos del mes</dt>
+        <dd id="total-ingresos">$ 0,00</dd>
+        <dt>Gastos del mes</dt>
+        <dd id="total-egresos">$ 0,00</dd>
+      </dl>
+    </aside>
+
+  </main>
+
+  <footer class="sitio-footer">
+    <div class="contenedor footer-columnas">
+      <div class="footer-col">
+        <h3>Equipo de desarrollo</h3>
+        <p>Joaquín Sangiorgi</p>
+        <p>Tecnicatura Universitaria en Programación de Sistemas</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Mapa del sitio</h3>
+        <ul>
+          <li><a href="inicio.html">Inicio</a></li>
+          <li><a href="gastos.html">Gastos</a></li>
+          <li><a href="ingresos.html">Ingresos</a></li>
+          <li><a href="ahorros.html">Ahorros</a></li>
+          <li><a href="reportes.html">Reportes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Información institucional</h3>
+        <p>UCES &mdash; Programación Web I</p>
+        <p>Proyecto integrador de cursada</p>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; 2026 Pesito. Proyecto académico.</p>
+  </footer>
+
+  <script src="recursos/funciones.js" defer></script>
+</body>
+</html>

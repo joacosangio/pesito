@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mis reportes | Pesito</title>
-  <meta name="description" content="Informes de tus ingresos y gastos por mes y por categoría.">
+  <title>Mis ahorros | Pesito</title>
+  <meta name="description" content="Definí tu meta de ahorro y seguí su progreso.">
   <link rel="stylesheet" href="recursos/style.css">
 </head>
 <body>
@@ -24,8 +24,8 @@
           <li><a href="inicio.html">Inicio</a></li>
           <li><a href="gastos.html">Gastos</a></li>
           <li><a href="ingresos.html">Ingresos</a></li>
-          <li><a href="ahorros.html">Ahorros</a></li>
-          <li><a href="reportes.html" aria-current="page">Reportes</a></li>
+          <li><a href="ahorros.html" aria-current="page">Ahorros</a></li>
+          <li><a href="reportes.html">Reportes</a></li>
           <li><a href="index.html" class="nav-salir">Cerrar sesión</a></li>
         </ul>
       </nav>
@@ -34,55 +34,41 @@
 
   <main class="contenedor">
 
-    <h1>Mis reportes</h1>
+    <h1>Mis ahorros</h1>
 
-    <section id="graficos" class="graficos">
-      <h2>Informe mensual</h2>
-      <p>Comparación de ingresos y gastos de los últimos meses registrados.</p>
+    <section id="meta-actual" class="columna-principal">
+      <h2>Tu meta de ahorro</h2>
 
-      <div class="grafico-barras" id="grafico-mensual" aria-label="Gráfico de ingresos y gastos por mes">
-        <p class="grafico-vacio">Todavía no hay movimientos suficientes para generar el informe.</p>
-      </div>
+      <article class="tarjeta tarjeta--meta">
+        <h3 id="meta-titulo">Todavía no definiste una meta</h3>
+        <progress id="meta-progreso" value="0" max="100" aria-labelledby="meta-titulo">0%</progress>
+        <p id="meta-detalle" class="tarjeta-detalle">Ahorrado: $ 0,00 de $ 0,00</p>
+      </article>
     </section>
 
-    <section id="gastos-por-categoria" class="graficos">
-      <h2>¿En qué se te va la plata?</h2>
-      <p>Tus gastos del mes agrupados por categoría.</p>
+    <section id="definir-meta" class="columna-principal">
+      <h2>Definir una meta</h2>
 
-      <div class="grafico-barras" id="grafico-categorias" aria-label="Gráfico de gastos por categoría">
-        <p class="grafico-vacio">Todavía no registraste gastos este mes.</p>
-      </div>
-    </section>
-
-    <section id="contacto" class="contacto">
-      <h2>¿Tenés dudas o encontraste un error?</h2>
-      <p>Escribinos y te respondemos a la brevedad.</p>
-
-      <form id="form-contacto" novalidate>
+      <form id="form-meta" novalidate>
         <div class="campo">
-          <label for="contacto-nombre">Nombre</label>
-          <input type="text" id="contacto-nombre" name="nombre" placeholder="Tu nombre" required>
+          <label for="meta-nombre">Nombre de la meta</label>
+          <input type="text" id="meta-nombre" name="nombreMeta" placeholder="Ej: Vacaciones, notebook nueva..." required>
         </div>
 
         <div class="campo">
-          <label for="contacto-email">Correo electrónico</label>
-          <input type="email" id="contacto-email" name="email" placeholder="tu@correo.com" required>
+          <label for="meta-monto">Monto objetivo</label>
+          <input type="number" id="meta-monto" name="montoMeta" placeholder="0.00" min="1" step="0.01" required>
         </div>
 
-        <div class="campo">
-          <label for="contacto-telefono">Teléfono (opcional)</label>
-          <input type="tel" id="contacto-telefono" name="telefono" placeholder="11 1234 5678" pattern="[0-9 ]{6,15}">
-        </div>
-
-        <div class="campo">
-          <label for="contacto-mensaje">Mensaje</label>
-          <textarea id="contacto-mensaje" name="mensaje" placeholder="Contanos qué necesitás..." required></textarea>
-        </div>
-
-        <button type="submit" class="boton-cta">Enviar mensaje</button>
-        <p id="contacto-feedback" class="feedback" aria-live="polite"></p>
+        <button type="submit" class="boton-cta">Guardar meta</button>
+        <p id="meta-feedback" class="feedback" aria-live="polite"></p>
       </form>
     </section>
+
+    <aside id="ayuda-metas" class="consejo" aria-label="Consejo sobre metas">
+      <h2>¿Cómo elegir una buena meta?</h2>
+      <p>Una meta realista se cumple en 3 a 6 meses de ahorro constante. Empezá con montos chicos y andá ajustándolos.</p>
+    </aside>
 
   </main>
 
