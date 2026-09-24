@@ -81,7 +81,7 @@ Esta separación permite que cada archivo pueda modificarse de forma independien
    │                         │                                   │                               │
    │  HTML + CSS + JS        │──────  Petición HTTP (GET)  ─────▶│  Localiza el recurso en el    │
    │  (index/inicio/gastos/  │        http://localhost/...       │  árbol de directorios         │
-   │   ingresos... .html)    │                                   │  (htdocs/pesito/)             │
+   │   ingresos... .html)    │                                   │  (Document Root: pesito/)     │
    │                         │◀─────  Respuesta HTTP (200 OK)  ──│                               │
    │  Renderiza el DOM y      │        + archivo solicitado       │  Devuelve el archivo tal cual  │
    │  ejecuta funciones.js    │        (.html / .css / .js /      │  (sitio estático, sin lógica   │
@@ -91,13 +91,27 @@ Esta separación permite que cada archivo pueda modificarse de forma independien
 
 **Ciclo de petición y respuesta:**
 
-1. El usuario ingresa `http://localhost/pesito/index.html` en el navegador (cliente).
+1. El usuario ingresa `http://localhost/` en el navegador (cliente). Como la petición apunta a la raíz, Apache responde con `index.html` gracias a la directiva `DirectoryIndex`.
 2. El navegador envía una **petición HTTP GET** al servidor Apache local (levantado por MAMP), solicitando ese recurso.
 3. Apache localiza el archivo en el árbol de directorios del proyecto y responde con un código de estado **200 OK** junto con el contenido del archivo (HTML).
 4. El navegador parsea el HTML, y por cada recurso enlazado (`style.css`, `funciones.js`, imágenes) repite el ciclo: nueva petición GET → nueva respuesta del servidor.
 5. Una vez recibidos todos los recursos, el navegador construye el DOM, aplica los estilos y ejecuta el JavaScript. Toda la lógica de interacción posterior (validaciones, cálculos, `localStorage`) ocurre **enteramente del lado del cliente**, sin nuevas peticiones al servidor.
 
 Al ser un sitio estático, el servidor Apache actúa únicamente como distribuidor de archivos (no hay procesamiento server-side, ni base de datos, ni sesiones de servidor).
+
+### Configuración del servidor local (MAMP)
+
+1. **Servidores iniciados:** Apache corriendo desde el panel de MAMP.
+
+   ![MAMP con Apache iniciado](../recursos/imagenes/mamp-servidores.png)
+
+2. **Document Root:** Apache apunta directamente a la carpeta del proyecto, por lo que el sitio se sirve en la raíz `http://localhost/` (sin copiar archivos a `htdocs`).
+
+   ![Document Root de MAMP apuntando a la carpeta del proyecto](../recursos/imagenes/mamp-document-root.png)
+
+3. **Puerto 80:** es el puerto estándar de HTTP, por eso la URL no necesita indicar puerto (`http://localhost/` en lugar de `http://localhost:8888/`).
+
+   ![Puerto de Apache configurado en 80](../recursos/imagenes/mamp-puertos.png)
 
 ### Árbol de Directorios
 
