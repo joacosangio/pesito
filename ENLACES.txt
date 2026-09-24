@@ -1,0 +1,10 @@
+Pesito - Programación Web I (UCES)
+
+Sitio publicado:
+https://joacosangio.github.io/pesito/
+
+Wireframes en Figma (desktop y mobile):
+https://www.figma.com/design/BIAIYR00IH8I3REvZRtIuV
+
+Repositorio:
+https://github.com/joacosangio/pesito

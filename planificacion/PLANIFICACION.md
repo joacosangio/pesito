@@ -118,3 +118,21 @@ pesito/
 └── README.md
 ```
 
+
+---
+
+## Sección III: Diseño Visual Conceptual (Bocetos)
+
+Los wireframes de todas las vistas están en Figma, cada una en versión **escritorio (1440 px)** y **móvil (390 px)**:
+
+**https://www.figma.com/design/BIAIYR00IH8I3REvZRtIuV**
+
+| Vista | Reorganización en móvil |
+|---|---|
+| 01 · Index (login / registro) | Los formularios de inicio de sesión y registro pasan de estar lado a lado a apilarse. |
+| 02 · Inicio (home) | Los cuatro accesos rápidos pasan de una fila a una grilla de 2×2; el resumen del mes se apila. |
+| 03 · Gastos / 04 · Ingresos | El total del mes sube arriba del formulario y la tabla del historial se convierte en una lista. |
+| 05 · Ahorros | El consejo sobre metas baja al final de la página. |
+| 06 · Reportes | Los gráficos y el formulario de contacto se apilan. |
+
+En escritorio el menú de navegación se muestra completo en el header; en móvil se reemplaza por un botón de menú (hamburguesa).

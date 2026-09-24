@@ -4,6 +4,11 @@ Proyecto integrador de la materia **Programación Web I** — Tecnicatura Univer
 
 La idea de "Pesito" es poder llevar un registro de los gastos que realizamos en el día a día y poder organizar nuestras finanzas y no perder el trackeo de nuestros gastos. Hacer esto nos ayuda a reconocer el famoso gasto hormiga, gastos innecesarios y sobre todo, ayudarnos a ahorrar para cumplir nuestras metas.
 
+## Enlaces
+
+- **Sitio publicado:** https://joacosangio.github.io/pesito/
+- **Wireframes (Figma, desktop y mobile):** https://www.figma.com/design/BIAIYR00IH8I3REvZRtIuV
+
 ## Autor
 
 Joaquín Sangiorgi
