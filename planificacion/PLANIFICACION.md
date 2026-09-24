@@ -110,11 +110,3 @@ pesito/
 └── README.md
 ```
 
----
-
-## Vocabulario técnico de referencia (para la defensa oral)
-
-- **Petición / respuesta HTTP:** ciclo de comunicación cliente-servidor descripto arriba.
-- **Elemento inline vs. block:** los elementos *block* (`<section>`, `<div>`, `<p>`) ocupan todo el ancho disponible y generan salto de línea; los *inline* (`<a>`, `<span>`, `<label>`) solo ocupan el espacio de su contenido y no rompen el flujo del texto.
-- **Metadatos:** información sobre la página que no se renderiza visualmente pero es leída por el navegador o buscadores (`<meta charset>`, `<meta name="viewport">`, `<meta name="description">`).
-- **Semántica:** uso de etiquetas HTML que describen el significado del contenido (`<header>`, `<nav>`, `<main>`, `<footer>`) en lugar de contenedores genéricos sin significado (`<div>` para todo).
