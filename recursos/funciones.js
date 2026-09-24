@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MisFinanzas — Lógica de comportamiento (JavaScript)
+   Pesito — Lógica de comportamiento (JavaScript)
    ==========================================================================
    FASE 1: este archivo todavía no tiene lógica implementada.
    La interactividad (menú móvil, validación de formularios en tiempo real,

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MisFinanzas — Hoja de estilos externa unificada
+   Pesito — Hoja de estilos externa unificada
    ==========================================================================
    FASE 1: por ahora solo hay estilos tipográficos y de color mínimos para
    que el contenido sea legible mientras se revisa la estructura HTML.
@@ -22,10 +22,6 @@ a {
 
 h1, h2, h3 {
   color: #123c5c;
-}
-
-.logo span {
-  color: #2e86c1;
 }
 
 table {

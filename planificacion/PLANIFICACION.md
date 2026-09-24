@@ -1,18 +1,22 @@
-# Planificación técnica — MisFinanzas
-
-**Proyecto Integrador de Cursada — Programación Web I (UCES)**
-**Fase 1: Planificación, Diseño Funcional y Estructura HTML5**
-**Autor:** Joaquín Sangiorgi
-
----
+# Pesito
 
 ## Sección I: Planificación y Análisis Funcional
 
 ### 1. Propósito y Propuesta de Valor
 
-La mayoría de las personas no lleva un registro sistemático de sus ingresos y gastos personales, lo que dificulta saber en qué se gasta el dinero mes a mes, cumplir metas de ahorro o anticipar problemas financieros. Las soluciones existentes suelen requerir registro de cuentas bancarias, suscripciones pagas o son demasiado complejas para un uso cotidiano simple.
+Mi idea para este proyecto, se basa en algo personal, quería que el proyecto de cursada me deje tanto un desafio técnico, como un "producto" de valor que pueda utilizar en mi día a día. 
 
-**MisFinanzas** resuelve este problema ofreciendo una herramienta liviana y de uso inmediato para registrar movimientos financieros (ingresos y gastos), definir metas de ahorro concretas y visualizar informes simples del propio comportamiento financiero, sin necesidad de vincular cuentas bancarias reales ni pagar una suscripción.
+Por lo tanto, me puse a pensar en algo que quisiera solucionar en mi vida que otras aplicaciones o tecnologías no lo hacen o bien, no son gratis o no me gustan del todo. También me sucedia que las aplicaciones que están buenas para solucionar algo, tienen miles de anuncios, funcionalidades pagas, etc.
+
+Por lo tanto, elegí ir por el problema que tengo que a fin de més no se en que gasté la plata, en donde, en que momento y que podria hacer para identificarlo o solucionarlo. Intenté varias veces con un excel, llevar el registro por Whatsapp o anotarlo en papel, pero siempre termino dejandolo porque es dificil de acceder, no lo tengo a mano en el momento que realizo el gasto, me tengo que esforzar mucho para luego analizar todo y tomar decisiones, etc.
+
+Es por eso, que decido crear "Pesito", para que todo usuario que quiera usarlo, tenga un lugar centralizado y sobre todo simple para registrar sus ingresos, gastos y metas de ahorro. 
+
+#### ¿Qué diferencia a Pesito del resto de plataformas similares?
+
+Pesito está diseñado para personas que necesitan claridad, simpleza y utilidad. El resto de plataformas, esta abarrotada de funcionalidades, son difíciles de entender o utilizar o son pagas. 
+
+Con Pesito vas a tener una interfaz sencilla, sin vueltas y con lo necesario para que lleves un registro de tus gastos, ahorros e ingresos. 
 
 ### 2. Objetivos del Sistema
 
@@ -28,11 +32,11 @@ Brindar una plataforma web simple que permita a una persona registrar y visualiz
 
 ### 3. Público Objetivo (User Personas)
 
-**Persona 1 — "Martina, 24 años, trabajadora en relación de dependencia"**
-Recibe su sueldo mensual y algunos ingresos extra ocasionales. Quiere entender en qué se le va la plata a fin de mes y ahorrar para un viaje. Usa el celular la mayor parte del tiempo → **prioriza una navegación mobile fluida y carga rápida de datos**.
+**Persona 1 — "Brenda, 23 años, trabajadora en relación de dependencia"**
+Recibe su sueldo mensual y algunos ingresos extra ocasionales de sus emprendimientos. Quiere entender en qué se le va la plata a fin de mes y ahorrar para un viaje. Usa el celular la mayor parte del tiempo → **prioriza una navegación mobile fluida y carga rápida de datos**.
 
 **Persona 2 — "Joaquín, 23 años, estudiante y trabajador independiente"**
-Tiene ingresos variables (changas, proyectos freelance) y gastos irregulares. Necesita una forma rápida de anotar movimientos sueltos sin fricción, generalmente desde la notebook. → **prioriza formularios cortos, rápidos de completar, con validación clara de errores**.
+Tiene ingresos variables (changas, proyectos freelance) y gastos irregulares. Necesita una forma rápida de anotar movimientos sueltos sin fricción, generalmente desde la notebook. Quiere comprarse una notebook pero le cuesta darse cuenta cuanto dinero ahorrado tiene o cuanto podría ahorrar. → **prioriza formularios cortos, rápidos de completar, con validación clara de errores**.
 
 **Persona 3 — "Roberto, 55 años, usuario con poca familiaridad tecnológica"**
 Quiere empezar a controlar sus gastos pero se frustra con aplicaciones complejas. → **prioriza una interfaz simple, textos claros, botones grandes y mensajes de error entendibles (no técnicos)**.
@@ -57,7 +61,7 @@ El proyecto respeta la separación de responsabilidades del desarrollo web del l
 
 Esta separación permite que cada archivo pueda modificarse de forma independiente sin romper a los otros dos, y es exactamente el criterio que se aplica fase a fase: la Fase 1 entrega solo estructura, la Fase 2 agrega estilo, y la Fase 3 agrega comportamiento.
 
-> **Nota sobre el login:** dado que esta materia cubre exclusivamente tecnologías del lado del cliente (no hay servidor de aplicación ni base de datos), el "login" de `index.html` es una simulación: valida el formulario y persiste los datos localmente en el navegador (`localStorage`), pero no constituye un mecanismo de autenticación real. Esta distinción se explicita para la defensa oral.
+> **Nota sobre el login:** dado que esta materia cubre exclusivamente tecnologías del lado del cliente (no hay servidor de aplicación ni base de datos), el "login" de `index.html` es una simulación: valida el formulario y persiste los datos localmente en el navegador (`localStorage`), pero no constituye un mecanismo de autenticación real. Esta distinción se explicita para la defensa oral. Mi idea es luego si el proyecto escala, hacer todo un backend de esto, con posibilidad de alojar usuarios y datos de usuarios en una base de datos y que tenga aplicación movil.
 
 ---
 
@@ -72,7 +76,7 @@ Esta separación permite que cada archivo pueda modificarse de forma independien
    │                         │                                   │                               │
    │  HTML + CSS + JS        │──────  Petición HTTP (GET)  ─────▶│  Localiza el recurso en el    │
    │  (index/dashboard/      │        http://localhost/...       │  árbol de directorios         │
-   │   reportes .html)       │                                   │  (htdocs/mis-finanzas-web/)   │
+   │   reportes .html)       │                                   │  (htdocs/pesito/)             │
    │                         │◀─────  Respuesta HTTP (200 OK)  ──│                               │
    │  Renderiza el DOM y      │        + archivo solicitado       │  Devuelve el archivo tal cual  │
    │  ejecuta funciones.js    │        (.html / .css / .js /      │  (sitio estático, sin lógica   │
@@ -82,7 +86,7 @@ Esta separación permite que cada archivo pueda modificarse de forma independien
 
 **Ciclo de petición y respuesta:**
 
-1. El usuario ingresa `http://localhost/mis-finanzas-web/index.html` en el navegador (cliente).
+1. El usuario ingresa `http://localhost/pesito/index.html` en el navegador (cliente).
 2. El navegador envía una **petición HTTP GET** al servidor Apache local (levantado por MAMP), solicitando ese recurso.
 3. Apache localiza el archivo en el árbol de directorios del proyecto y responde con un código de estado **200 OK** junto con el contenido del archivo (HTML).
 4. El navegador parsea el HTML, y por cada recurso enlazado (`style.css`, `funciones.js`, imágenes) repite el ciclo: nueva petición GET → nueva respuesta del servidor.
@@ -93,7 +97,7 @@ Al ser un sitio estático, el servidor Apache actúa únicamente como distribuid
 ### Árbol de Directorios
 
 ```
-mis-finanzas-web/
+pesito/
 ├── index.html                  (Punto de entrada obligatorio del sitio)
 ├── dashboard.html               (Página secundaria — registro de movimientos)
 ├── reportes.html                  (Página secundaria — metas, informes y contacto)
@@ -102,8 +106,7 @@ mis-finanzas-web/
 │   ├── funciones.js                  (Script lógico de comportamiento JavaScript)
 │   └── imagenes/                       (Archivos multimedia e iconos)
 ├── planificacion/
-│   ├── PLANIFICACION.md                 (Este documento)
-│   └── wireframes.html                    (Bocetos desktop / mobile)
+│   └── PLANIFICACION.md                 (Este documento)
 └── README.md
 ```
 
