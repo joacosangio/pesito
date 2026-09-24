@@ -113,6 +113,10 @@ Al ser un sitio estático, el servidor Apache actúa únicamente como distribuid
 
    ![Puerto de Apache configurado en 80](../recursos/imagenes/mamp-puertos.png)
 
+4. **Ciclo petición / respuesta en acción:** en la pestaña *Network* de las herramientas del navegador se ve cómo, al cargar una página desde `localhost`, el navegador pide primero el documento HTML y después cada recurso enlazado (`style.css`, `funciones.js`), y el servidor responde a cada uno con el código de estado **200 OK**.
+
+   ![Pestaña Network mostrando las peticiones HTTP con estado 200](../recursos/imagenes/localhost-network.png)
+
 ### Árbol de Directorios
 
 ```
@@ -126,9 +130,10 @@ pesito/
 ├── recursos/
 │   ├── style.css                   (Hoja de estilos CSS externa unificada)
 │   ├── funciones.js                  (Script lógico de comportamiento JavaScript)
-│   └── imagenes/                       (Archivos multimedia e iconos)
+│   └── imagenes/                       (Archivos multimedia, iconos y capturas)
 ├── planificacion/
 │   └── PLANIFICACION.md                 (Este documento)
+├── ENLACES.txt                  (Links al sitio publicado, wireframes y repositorio)
 └── README.md
 ```
 

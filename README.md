@@ -32,17 +32,22 @@ pesito/
 ├── recursos/
 │   ├── style.css             (Hoja de estilos externa unificada)
 │   ├── funciones.js           (Lógica de comportamiento JavaScript)
-│   └── imagenes/               (Recursos multimedia)
+│   └── imagenes/               (Recursos multimedia y capturas)
 ├── planificacion/
 │   └── PLANIFICACION.md        (Documentación técnica y funcional)
+├── ENLACES.txt                 (Links al sitio, wireframes y repositorio)
 └── README.md
 ```
 
 ## Cómo correr el sitio localmente (MAMP / Apache)
 
-1. Instalar [MAMP](https://www.mamp.info/) (o cualquier servidor Apache local).
-2. Copiar (o linkear) la carpeta `pesito/` dentro de la carpeta raíz del servidor local (`htdocs` en MAMP).
-3. Iniciar los servidores desde el panel de MAMP.
-4. Abrir el navegador en `http://localhost/pesito/index.html`.
+1. Instalar [MAMP](https://www.mamp.info/).
+2. Descargar el proyecto: `git clone https://github.com/joacosangio/pesito.git` (o **Code → Download ZIP** en GitHub).
+3. En MAMP, ir a **Preferences → Server → Document Root → Select...** y elegir la carpeta `pesito/`. Confirmar con **OK**.
+4. En **Preferences → Ports**, verificar que el puerto de Apache sea **80**.
+5. Iniciar los servidores (**Start Servers**). Si ya estaban corriendo, detenerlos y volver a iniciarlos para que Apache tome la nueva configuración.
+6. Abrir el navegador en `http://localhost/`.
+
+Las capturas de esta configuración están en la Sección II de [`PLANIFICACION.md`](planificacion/PLANIFICACION.md).
 
 No requiere backend, base de datos, ni instalación de dependencias: es un sitio 100% estático del lado del cliente.
