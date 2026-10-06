@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mis ingresos | Pesito</title>
   <meta name="description" content="Cargá tus ingresos y consultá tu historial de ingresos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="recursos/style.css">
 </head>
 <body>
@@ -36,62 +39,64 @@
 
     <h1>Mis ingresos</h1>
 
-    <section id="registrar-ingreso" class="columna-principal">
-      <h2>Cargar un ingreso</h2>
+    <div class="columnas">
+      <section id="registrar-ingreso" class="columna-principal panel">
+        <h2>Cargar un ingreso</h2>
 
-      <form id="form-ingreso" novalidate>
-        <div class="campo">
-          <label for="ingreso-descripcion">Descripción</label>
-          <input
-            type="text"
-            id="ingreso-descripcion"
-            name="descripcion"
-            placeholder="Ej: Sueldo, proyecto freelance, venta..."
-            required
-          >
-        </div>
+        <form id="form-ingreso" novalidate>
+          <div class="campo">
+            <label for="ingreso-descripcion">Descripción</label>
+            <input
+              type="text"
+              id="ingreso-descripcion"
+              name="descripcion"
+              placeholder="Ej: Sueldo, proyecto freelance, venta..."
+              required
+            >
+          </div>
 
-        <div class="campo">
-          <label for="ingreso-monto">Monto</label>
-          <input
-            type="number"
-            id="ingreso-monto"
-            name="monto"
-            placeholder="0.00"
-            min="0.01"
-            step="0.01"
-            required
-          >
-        </div>
+          <div class="campo">
+            <label for="ingreso-monto">Monto</label>
+            <input
+              type="number"
+              id="ingreso-monto"
+              name="monto"
+              placeholder="0.00"
+              min="0.01"
+              step="0.01"
+              required
+            >
+          </div>
 
-        <div class="campo">
-          <label for="ingreso-categoria">Categoría</label>
-          <select id="ingreso-categoria" name="categoria" required>
-            <option value="" disabled selected>Elegí una categoría</option>
-            <option value="sueldo">Sueldo</option>
-            <option value="freelance">Trabajo independiente</option>
-            <option value="venta">Venta</option>
-            <option value="regalo">Regalo</option>
-            <option value="otro">Otro</option>
-          </select>
-        </div>
+          <div class="campo">
+            <label for="ingreso-categoria">Categoría</label>
+            <select id="ingreso-categoria" name="categoria" required>
+              <option value="" disabled selected>Elegí una categoría</option>
+              <option value="sueldo">Sueldo</option>
+              <option value="freelance">Trabajo independiente</option>
+              <option value="venta">Venta</option>
+              <option value="regalo">Regalo</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
 
-        <div class="campo">
-          <label for="ingreso-fecha">Fecha</label>
-          <input type="date" id="ingreso-fecha" name="fecha" required>
-        </div>
+          <div class="campo">
+            <label for="ingreso-fecha">Fecha</label>
+            <input type="date" id="ingreso-fecha" name="fecha" required>
+          </div>
 
-        <button type="submit" class="boton-cta">Guardar ingreso</button>
-        <p id="ingreso-feedback" class="feedback" aria-live="polite"></p>
-      </form>
-    </section>
+          <button type="submit" class="boton-cta">Guardar ingreso</button>
+          <p id="ingreso-feedback" class="feedback" aria-live="polite"></p>
+        </form>
+      </section>
 
-    <aside id="total-ingresos" class="consejo" aria-label="Total del mes">
-      <h2>Total de ingresos del mes</h2>
-      <p class="tarjeta-valor" id="total-mes-ingresos">$ 0,00</p>
-    </aside>
+      <aside id="total-ingresos" class="consejo columna-lateral tarjeta-total tarjeta-total--ingreso" aria-label="Total del mes">
+        <h2>Total de ingresos del mes</h2>
+        <p class="tarjeta-valor" id="total-mes-ingresos">$ 0,00</p>
+      </aside>
+    </div>
 
-    <section id="historial-ingresos" class="historial">
+    <section id="historial-ingresos" class="historial panel">
       <h2>Historial de ingresos</h2>
 
       <div class="campo campo-buscador">
@@ -104,22 +109,24 @@
         >
       </div>
 
-      <table id="tabla-ingresos">
-        <caption>Ingresos registrados</caption>
-        <thead>
-          <tr>
-            <th scope="col">Fecha</th>
-            <th scope="col">Descripción</th>
-            <th scope="col">Categoría</th>
-            <th scope="col">Monto</th>
-          </tr>
-        </thead>
-        <tbody id="cuerpo-tabla-ingresos">
-          <tr>
-            <td colspan="4">Todavía no registraste ingresos.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="tabla-scroll">
+        <table id="tabla-ingresos">
+          <caption>Ingresos registrados</caption>
+          <thead>
+            <tr>
+              <th scope="col">Fecha</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Categoría</th>
+              <th scope="col">Monto</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpo-tabla-ingresos">
+            <tr>
+              <td colspan="4">Todavía no registraste ingresos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
   </main>

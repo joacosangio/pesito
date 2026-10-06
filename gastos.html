@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mis gastos | Pesito</title>
   <meta name="description" content="Cargá tus gastos y consultá tu historial de gastos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="recursos/style.css">
 </head>
 <body>
@@ -36,63 +39,65 @@
 
     <h1>Mis gastos</h1>
 
-    <section id="registrar-gasto" class="columna-principal">
-      <h2>Cargar un gasto</h2>
+    <div class="columnas">
+      <section id="registrar-gasto" class="columna-principal panel">
+        <h2>Cargar un gasto</h2>
 
-      <form id="form-gasto" novalidate>
-        <div class="campo">
-          <label for="gasto-descripcion">Descripción</label>
-          <input
-            type="text"
-            id="gasto-descripcion"
-            name="descripcion"
-            placeholder="Ej: Supermercado, alquiler, colectivo..."
-            required
-          >
-        </div>
+        <form id="form-gasto" novalidate>
+          <div class="campo">
+            <label for="gasto-descripcion">Descripción</label>
+            <input
+              type="text"
+              id="gasto-descripcion"
+              name="descripcion"
+              placeholder="Ej: Supermercado, alquiler, colectivo..."
+              required
+            >
+          </div>
 
-        <div class="campo">
-          <label for="gasto-monto">Monto</label>
-          <input
-            type="number"
-            id="gasto-monto"
-            name="monto"
-            placeholder="0.00"
-            min="0.01"
-            step="0.01"
-            required
-          >
-        </div>
+          <div class="campo">
+            <label for="gasto-monto">Monto</label>
+            <input
+              type="number"
+              id="gasto-monto"
+              name="monto"
+              placeholder="0.00"
+              min="0.01"
+              step="0.01"
+              required
+            >
+          </div>
 
-        <div class="campo">
-          <label for="gasto-categoria">Categoría</label>
-          <select id="gasto-categoria" name="categoria" required>
-            <option value="" disabled selected>Elegí una categoría</option>
-            <option value="comida">Comida</option>
-            <option value="transporte">Transporte</option>
-            <option value="servicios">Servicios</option>
-            <option value="vivienda">Vivienda</option>
-            <option value="ocio">Ocio</option>
-            <option value="otro">Otro</option>
-          </select>
-        </div>
+          <div class="campo">
+            <label for="gasto-categoria">Categoría</label>
+            <select id="gasto-categoria" name="categoria" required>
+              <option value="" disabled selected>Elegí una categoría</option>
+              <option value="comida">Comida</option>
+              <option value="transporte">Transporte</option>
+              <option value="servicios">Servicios</option>
+              <option value="vivienda">Vivienda</option>
+              <option value="ocio">Ocio</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
 
-        <div class="campo">
-          <label for="gasto-fecha">Fecha</label>
-          <input type="date" id="gasto-fecha" name="fecha" required>
-        </div>
+          <div class="campo">
+            <label for="gasto-fecha">Fecha</label>
+            <input type="date" id="gasto-fecha" name="fecha" required>
+          </div>
 
-        <button type="submit" class="boton-cta">Guardar gasto</button>
-        <p id="gasto-feedback" class="feedback" aria-live="polite"></p>
-      </form>
-    </section>
+          <button type="submit" class="boton-cta">Guardar gasto</button>
+          <p id="gasto-feedback" class="feedback" aria-live="polite"></p>
+        </form>
+      </section>
 
-    <aside id="total-gastos" class="consejo" aria-label="Total del mes">
-      <h2>Total de gastos del mes</h2>
-      <p class="tarjeta-valor" id="total-mes-gastos">$ 0,00</p>
-    </aside>
+      <aside id="total-gastos" class="consejo columna-lateral tarjeta-total tarjeta-total--gasto" aria-label="Total del mes">
+        <h2>Total de gastos del mes</h2>
+        <p class="tarjeta-valor" id="total-mes-gastos">$ 0,00</p>
+      </aside>
+    </div>
 
-    <section id="historial-gastos" class="historial">
+    <section id="historial-gastos" class="historial panel">
       <h2>Historial de gastos</h2>
 
       <div class="campo campo-buscador">
@@ -105,22 +110,24 @@
         >
       </div>
 
-      <table id="tabla-gastos">
-        <caption>Gastos registrados</caption>
-        <thead>
-          <tr>
-            <th scope="col">Fecha</th>
-            <th scope="col">Descripción</th>
-            <th scope="col">Categoría</th>
-            <th scope="col">Monto</th>
-          </tr>
-        </thead>
-        <tbody id="cuerpo-tabla-gastos">
-          <tr>
-            <td colspan="4">Todavía no registraste gastos.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="tabla-scroll">
+        <table id="tabla-gastos">
+          <caption>Gastos registrados</caption>
+          <thead>
+            <tr>
+              <th scope="col">Fecha</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Categoría</th>
+              <th scope="col">Monto</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpo-tabla-gastos">
+            <tr>
+              <td colspan="4">Todavía no registraste gastos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
   </main>

@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mis reportes | Pesito</title>
   <meta name="description" content="Informes de tus ingresos y gastos por mes y por categoría.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="recursos/style.css">
 </head>
 <body>
@@ -36,53 +39,57 @@
 
     <h1>Mis reportes</h1>
 
-    <section id="graficos" class="graficos">
-      <h2>Informe mensual</h2>
-      <p>Comparación de ingresos y gastos de los últimos meses registrados.</p>
+    <div class="columnas">
+      <div class="columna-principal">
+        <section id="graficos" class="graficos panel">
+          <h2>Informe mensual</h2>
+          <p>Comparación de ingresos y gastos de los últimos meses registrados.</p>
 
-      <div class="grafico-barras" id="grafico-mensual" aria-label="Gráfico de ingresos y gastos por mes">
-        <p class="grafico-vacio">Todavía no hay movimientos suficientes para generar el informe.</p>
+          <div class="grafico-barras" id="grafico-mensual" aria-label="Gráfico de ingresos y gastos por mes">
+            <p class="grafico-vacio">Todavía no hay movimientos suficientes para generar el informe.</p>
+          </div>
+        </section>
+
+        <section id="gastos-por-categoria" class="graficos panel">
+          <h2>¿En qué se te va la plata?</h2>
+          <p>Tus gastos del mes agrupados por categoría.</p>
+
+          <div class="grafico-barras" id="grafico-categorias" aria-label="Gráfico de gastos por categoría">
+            <p class="grafico-vacio">Todavía no registraste gastos este mes.</p>
+          </div>
+        </section>
       </div>
-    </section>
 
-    <section id="gastos-por-categoria" class="graficos">
-      <h2>¿En qué se te va la plata?</h2>
-      <p>Tus gastos del mes agrupados por categoría.</p>
+      <section id="contacto" class="contacto columna-lateral panel">
+        <h2>¿Tenés dudas o encontraste un error?</h2>
+        <p>Escribinos y te respondemos a la brevedad.</p>
 
-      <div class="grafico-barras" id="grafico-categorias" aria-label="Gráfico de gastos por categoría">
-        <p class="grafico-vacio">Todavía no registraste gastos este mes.</p>
-      </div>
-    </section>
+        <form id="form-contacto" novalidate>
+          <div class="campo">
+            <label for="contacto-nombre">Nombre</label>
+            <input type="text" id="contacto-nombre" name="nombre" placeholder="Tu nombre" required>
+          </div>
 
-    <section id="contacto" class="contacto">
-      <h2>¿Tenés dudas o encontraste un error?</h2>
-      <p>Escribinos y te respondemos a la brevedad.</p>
+          <div class="campo">
+            <label for="contacto-email">Correo electrónico</label>
+            <input type="email" id="contacto-email" name="email" placeholder="tu@correo.com" required>
+          </div>
 
-      <form id="form-contacto" novalidate>
-        <div class="campo">
-          <label for="contacto-nombre">Nombre</label>
-          <input type="text" id="contacto-nombre" name="nombre" placeholder="Tu nombre" required>
-        </div>
+          <div class="campo">
+            <label for="contacto-telefono">Teléfono (opcional)</label>
+            <input type="tel" id="contacto-telefono" name="telefono" placeholder="11 1234 5678" pattern="[0-9 ]{6,15}">
+          </div>
 
-        <div class="campo">
-          <label for="contacto-email">Correo electrónico</label>
-          <input type="email" id="contacto-email" name="email" placeholder="tu@correo.com" required>
-        </div>
+          <div class="campo">
+            <label for="contacto-mensaje">Mensaje</label>
+            <textarea id="contacto-mensaje" name="mensaje" placeholder="Contanos qué necesitás..." required></textarea>
+          </div>
 
-        <div class="campo">
-          <label for="contacto-telefono">Teléfono (opcional)</label>
-          <input type="tel" id="contacto-telefono" name="telefono" placeholder="11 1234 5678" pattern="[0-9 ]{6,15}">
-        </div>
-
-        <div class="campo">
-          <label for="contacto-mensaje">Mensaje</label>
-          <textarea id="contacto-mensaje" name="mensaje" placeholder="Contanos qué necesitás..." required></textarea>
-        </div>
-
-        <button type="submit" class="boton-cta">Enviar mensaje</button>
-        <p id="contacto-feedback" class="feedback" aria-live="polite"></p>
-      </form>
-    </section>
+          <button type="submit" class="boton-cta">Enviar mensaje</button>
+          <p id="contacto-feedback" class="feedback" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
 
   </main>
 

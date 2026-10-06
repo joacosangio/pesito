@@ -1,40 +1,824 @@
 /* ==========================================================================
    Pesito — Hoja de estilos externa unificada
    ==========================================================================
-   FASE 1: por ahora solo hay estilos tipográficos y de color mínimos para
-   que el contenido sea legible mientras se revisa la estructura HTML.
+   FASE 2: maquetación, estilos visuales y diseño adaptable.
 
-   El modelo de caja (reset universal + box-sizing), el contenedor de 960px,
-   Flexbox para el menú / columnas / footer, y las media queries responsive
-   se implementan en la FASE 2 de este proyecto. No adelantar esas reglas
-   acá para no pisar el trabajo de esa etapa.
+   Índice
+     1. Variables (paleta y medidas)
+     2. Reset universal y modelo de caja
+     3. Base tipográfica
+     4. Contenedor de 960px
+     5. Encabezado y menú de navegación (Flexbox)
+     6. Hero
+     7. Estructura multi-columna (Flexbox)
+     8. Paneles, tarjetas y bloques
+     9. Formularios y botones
+    10. Tablas
+    11. Pie de página (Flexbox)
+    12. Media queries: tablet (720px) y smartphone (480px)
+
+   Paleta — regla 60-30-10, inspirada en los colores de Vélez Sarsfield:
+     60% Blanco  -> fondo de página y superficies (la camiseta).
+     30% Azul    -> header, hero, títulos, footer, bloques destacados.
+     10% Coral   -> llamados a la acción y detalles. Es complementario dividido
+                    del azul en el círculo cromático (vecino de su opuesto), así que
+                    resalta sin competir con la identidad azul y blanca.
+   Verde y rojo se reservan solo para su significado: ingreso y gasto.
    ========================================================================== */
 
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  color: #1f2933;
-  line-height: 1.5;
+
+/* 1. Variables ============================================================= */
+
+:root {
+  /* 60% — blancos */
+  --blanco: #ffffff;
+  --fondo: #f4f7fc;            /* blanco con un leve tinte azul: descansa la vista */
+  --azul-50: #e8eef9;          /* bordes suaves, encabezados de tabla */
+
+  /* 30% — azules Vélez */
+  --azul: #0b3d91;             /* azul principal */
+  --azul-oscuro: #06235a;      /* footer, texto sobre el coral */
+  --azul-medio: #2f5fb3;       /* hover y foco */
+
+  /* 10% — acento */
+  --acento: #ff6b4a;
+  --acento-oscuro: #f2552f;
+
+  /* Texto */
+  --texto: #14213d;
+  --texto-suave: #52607a;
+
+  /* Colores con significado (uso puntual) */
+  --verde: #1e8e5a;
+  --rojo: #c8102e;
+
+  /* Medidas */
+  --radio: 14px;
+  --radio-chico: 8px;
+  --sombra: 0 1px 2px rgba(6, 35, 90, 0.06), 0 8px 24px rgba(6, 35, 90, 0.08);
+  --separacion: 1.5rem;
 }
 
-a {
-  color: #1a5276;
+
+/* 2. Reset universal y modelo de caja ====================================== */
+/* box-sizing: border-box hace que width/height incluyan padding y borde,
+   así una caja de 300px mide 300px sin importar su relleno. */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* 3. Base tipográfica ====================================================== */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+  background-color: var(--fondo);
+  color: var(--texto);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;               /* empuja el footer al fondo en páginas cortas */
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 h1, h2, h3 {
-  color: #123c5c;
+  color: var(--azul);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
-table {
-  border-collapse: collapse;
+h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: var(--separacion);
+}
+
+h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+p + p {
+  margin-top: 0.5rem;
+}
+
+a {
+  color: var(--azul);
+}
+
+ul {
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 2px;
+}
+
+
+/* 4. Contenedor de 960px =================================================== */
+
+.contenedor {
   width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-th, td {
-  border: 1px solid #d0d7de;
-  padding: 0.5rem;
-  text-align: left;
+main.contenedor {
+  padding-top: 2.5rem;
+  padding-bottom: 3.5rem;
+}
+
+/* Título de las páginas internas, con una barrita coral debajo */
+main > h1::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 5px;
+  margin-top: 0.6rem;
+  border-radius: 3px;
+  background-color: var(--acento);
+}
+
+
+/* 5. Encabezado y menú de navegación ======================================= */
+
+.sitio-header {
+  background-color: var(--blanco);
+  border-bottom: 1px solid var(--azul-50);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.sitio-header .contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  min-height: 72px;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--azul);
+}
+
+.logo a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* El puntito coral del logo */
+.logo::after {
+  content: ".";
+  color: var(--acento);
+}
+
+/* El botón hamburguesa se activa en la Fase 3 (JavaScript).
+   Mientras tanto el menú queda siempre visible. */
+.menu-toggle {
+  display: none;
+}
+
+.nav-principal ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-principal a {
+  display: block;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radio-chico);
+  color: var(--texto);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-principal a:hover {
+  background-color: var(--azul-50);
+  color: var(--azul);
+}
+
+/* Página actual: subrayado coral */
+.nav-principal a[aria-current="page"] {
+  color: var(--azul);
+  box-shadow: inset 0 -3px 0 var(--acento);
+  border-radius: var(--radio-chico) var(--radio-chico) 0 0;
+}
+
+.nav-principal .nav-salir {
+  color: var(--texto-suave);
+  border: 1px solid var(--azul-50);
+  margin-left: 0.5rem;
+}
+
+
+/* 6. Hero ================================================================== */
+
+.hero {
+  background-color: var(--azul);
+  background-image: linear-gradient(135deg, var(--azul) 0%, var(--azul-oscuro) 100%);
+  color: var(--blanco);
+  border-radius: var(--radio);
+  padding: 3rem 2.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--sombra);
+}
+
+.hero h1 {
+  color: var(--blanco);
+  font-size: 2.6rem;
+  max-width: 560px;
+  margin-bottom: 0.75rem;
+}
+
+.hero p {
+  max-width: 520px;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* 7. Estructura multi-columna ============================================== */
+
+.columnas {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--separacion);
+  margin-bottom: var(--separacion);
+}
+
+.columna-principal {
+  flex: 2;                     /* ocupa dos tercios */
+  min-width: 0;
+}
+
+.columna-lateral {
+  flex: 1;                     /* ocupa un tercio */
+  min-width: 0;
+}
+
+/* Las secciones apiladas dentro de una columna se separan entre sí */
+.columna-principal > .panel + .panel {
+  margin-top: var(--separacion);
+}
+
+
+/* 8. Paneles, tarjetas y bloques =========================================== */
+
+.panel {
+  background-color: var(--blanco);
+  border: 1px solid var(--azul-50);
+  border-radius: var(--radio);
+  padding: 1.75rem;
+  box-shadow: var(--sombra);
+}
+
+/* Bloque lateral de consejo: superficie azul (parte del 30%) */
+.consejo {
+  background-color: var(--azul);
+  color: var(--blanco);
+  border-radius: var(--radio);
+  padding: 1.75rem;
+  box-shadow: var(--sombra);
+}
+
+.consejo h2 {
+  color: var(--blanco);
+  font-size: 1.1rem;
+}
+
+.consejo p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Total del mes en Gastos / Ingresos */
+.tarjeta-valor {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--blanco);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.tarjeta-total {
+  border-top: 6px solid var(--acento);
+}
+
+/* Inicio — accesos rápidos */
+.acciones-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.acciones-lista li {
+  flex: 1 1 calc(50% - 0.5rem);
+}
+
+.accion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  height: 100%;
+  padding: 1.35rem 1.35rem 1.35rem 1.5rem;
+  background-color: var(--blanco);
+  border: 1px solid var(--azul-50);
+  border-left: 5px solid var(--azul);
+  border-radius: var(--radio);
+  color: var(--texto-suave);
+  text-decoration: none;
+  box-shadow: var(--sombra);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.accion strong {
+  color: var(--azul);
+  font-size: 1.1rem;
+}
+
+.accion strong::after {
+  content: " →";
+  color: var(--acento-oscuro);
+}
+
+.accion:hover {
+  transform: translateY(-3px);
+  border-left-color: var(--acento);
+}
+
+/* Inicio — resumen del mes */
+.resumen {
+  background-color: var(--azul-oscuro);
+  color: var(--blanco);
+  border-radius: var(--radio);
+  padding: 1.75rem;
+  box-shadow: var(--sombra);
+}
+
+.resumen h2 {
+  color: var(--blanco);
+}
+
+.resumen-datos dt {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 1rem;
+}
+
+.resumen-datos dd {
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* El saldo es el dato más importante: más grande y en coral */
+.resumen-datos dd:first-of-type {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--acento);
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Ahorros — meta con barra de progreso */
+.tarjeta--meta h3 {
+  color: var(--texto);
+}
+
+progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 14px;
+  border: none;
+  border-radius: 7px;
+  background-color: var(--azul-50);
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+progress::-webkit-progress-bar {
+  background-color: var(--azul-50);
+  border-radius: 7px;
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--azul);
+  border-radius: 7px;
+}
+
+progress::-moz-progress-bar {
+  background-color: var(--azul);
+  border-radius: 7px;
+}
+
+.tarjeta-detalle {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+/* Reportes — lugar reservado para los gráficos */
+.graficos > p {
+  color: var(--texto-suave);
+}
+
+.grafico-barras {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  margin-top: 1rem;
+  padding: 1.5rem;
+  border: 2px dashed var(--azul-50);
+  border-radius: var(--radio-chico);
+  background-color: var(--fondo);
+}
+
+.grafico-vacio {
+  color: var(--texto-suave);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* Index — acceso */
+.acceso > h2 {
+  font-size: 1.6rem;
+}
+
+.nota-acceso {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  margin-bottom: var(--separacion);
+}
+
+.acceso-paneles {
+  display: flex;
+  gap: var(--separacion);
+}
+
+.acceso-panel {
+  flex: 1;
+}
+
+/* El panel de registro lleva el filo azul para diferenciarse */
+#registrarse {
+  border-top: 5px solid var(--azul);
+}
+
+
+/* 9. Formularios y botones ================================================= */
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.1rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--texto);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--texto);
+  background-color: var(--blanco);
+  border: 1.5px solid #cdd7e8;
+  border-radius: var(--radio-chico);
+  padding: 0.7rem 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #8a96ad;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--azul-medio);
+  box-shadow: 0 0 0 4px rgba(47, 95, 179, 0.15);
+}
+
+/* Botón principal: el 10% coral. Texto azul oscuro = contraste ~5.3:1 (AA).
+   Con texto blanco el coral no llega al mínimo de accesibilidad */
+.boton-cta {
+  display: inline-block;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  font: inherit;
+  font-weight: 700;
+  color: var(--azul-oscuro);
+  background-color: var(--acento);
+  border: none;
+  border-radius: var(--radio-chico);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.boton-cta:hover {
+  background-color: var(--acento-oscuro);
+}
+
+.boton-cta:active {
+  transform: translateY(1px);
 }
 
 .feedback {
   min-height: 1.2em;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.campo-buscador {
+  max-width: 420px;
+}
+
+
+/* 10. Tablas =============================================================== */
+
+/* En pantallas angostas la tabla se desplaza dentro de su caja
+   en lugar de romper el ancho de la página */
+.tabla-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+caption {
+  text-align: left;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  padding-bottom: 0.5rem;
+}
+
+th,
+td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--azul-50);
+}
+
+th {
+  background-color: var(--azul-50);
+  color: var(--azul);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+th:first-child {
+  border-radius: var(--radio-chico) 0 0 var(--radio-chico);
+}
+
+th:last-child {
+  border-radius: 0 var(--radio-chico) var(--radio-chico) 0;
+}
+
+/* Columna de montos alineada a la derecha, con números de ancho fijo */
+th:last-child,
+td:last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+tbody tr:hover {
+  background-color: var(--fondo);
+}
+
+/* Fila de "todavía no hay datos" */
+td[colspan] {
+  text-align: center !important;
+  color: var(--texto-suave);
+  padding: 2rem 1rem;
+}
+
+#tabla-gastos td:last-child {
+  color: var(--rojo);
+  font-weight: 700;
+}
+
+#tabla-ingresos td:last-child {
+  color: var(--verde);
+  font-weight: 700;
+}
+
+
+/* 11. Pie de página ======================================================== */
+
+.sitio-footer {
+  background-color: var(--azul-oscuro);
+  color: rgba(255, 255, 255, 0.75);
+  padding-top: 3rem;
+  font-size: 0.92rem;
+  border-top: 5px solid var(--azul);
+}
+
+.footer-columnas {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-col {
+  flex: 1;
+}
+
+.footer-col h3 {
+  color: var(--blanco);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.footer-col p + p {
+  margin-top: 0.25rem;
+}
+
+.footer-col li + li {
+  margin-top: 0.35rem;
+}
+
+.footer-col a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  color: var(--acento);
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* 12. Media queries ======================================================== */
+
+/* --- Tablet: 720px o menos -------------------------------------------------
+   Las columnas pasan a apilarse: la barra lateral queda debajo del
+   contenido principal. El menú baja a su propia fila debajo del logo. */
+@media (max-width: 720px) {
+
+  .sitio-header .contenedor {
+    flex-wrap: wrap;
+    padding-top: 0.75rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .nav-principal {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .columnas,
+  .acceso-paneles {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .columna-principal,
+  .columna-lateral {
+    width: 100%;
+  }
+
+  .hero {
+    padding: 2.5rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .footer-columnas {
+    flex-wrap: wrap;
+  }
+
+  .footer-col {
+    flex: 1 1 40%;
+  }
+}
+
+/* --- Smartphone: 480px o menos ---------------------------------------------
+   El menú se apila verticalmente para que cada opción sea fácil de tocar.
+   Textos y márgenes se achican proporcionalmente (todo está en rem). */
+@media (max-width: 480px) {
+
+  html {
+    font-size: 15px;
+  }
+
+  .contenedor {
+    padding: 0 1rem;
+  }
+
+  main.contenedor {
+    padding-top: 1.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .nav-principal ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.15rem;
+  }
+
+  .nav-principal a {
+    padding: 0.7rem 0.85rem;
+  }
+
+  .nav-principal a[aria-current="page"] {
+    background-color: var(--azul-50);
+    box-shadow: inset 4px 0 0 var(--acento);
+    border-radius: var(--radio-chico);
+  }
+
+  .nav-principal .nav-salir {
+    margin-left: 0;
+    margin-top: 0.35rem;
+  }
+
+  .sitio-header {
+    position: static;           /* el menú apilado es alto: no lo fijamos */
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero {
+    padding: 2rem 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .panel,
+  .consejo,
+  .resumen {
+    padding: 1.25rem;
+  }
+
+  .acciones-lista li {
+    flex-basis: 100%;
+  }
+
+  .footer-columnas {
+    flex-direction: column;
+    gap: 1.75rem;
+  }
 }

@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio | Pesito</title>
   <meta name="description" content="Tu panel de Pesito: cargá gastos e ingresos, mirá tus ahorros y tus reportes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="recursos/style.css">
 </head>
 <body>
@@ -39,48 +42,50 @@
       <p>¿Qué querés hacer hoy?</p>
     </section>
 
-    <section id="acciones" class="acciones" aria-label="Accesos rápidos">
-      <h2>Accesos rápidos</h2>
+    <div class="columnas">
+      <section id="acciones" class="acciones columna-principal" aria-label="Accesos rápidos">
+        <h2>Accesos rápidos</h2>
 
-      <ul class="acciones-lista">
-        <li>
-          <a href="gastos.html" class="accion accion--gasto">
-            <strong>Cargar un gasto</strong>
-            <span>Anotá lo que gastaste y mirá tu historial de gastos.</span>
-          </a>
-        </li>
-        <li>
-          <a href="ingresos.html" class="accion accion--ingreso">
-            <strong>Cargar un ingreso</strong>
-            <span>Registrá sueldos, cobros o changas y su historial.</span>
-          </a>
-        </li>
-        <li>
-          <a href="ahorros.html" class="accion accion--ahorro">
-            <strong>Ver mis ahorros</strong>
-            <span>Seguí el progreso de tu meta de ahorro.</span>
-          </a>
-        </li>
-        <li>
-          <a href="reportes.html" class="accion accion--reporte">
-            <strong>Ver mis reportes</strong>
-            <span>Compará ingresos y gastos mes a mes.</span>
-          </a>
-        </li>
-      </ul>
-    </section>
+        <ul class="acciones-lista">
+          <li>
+            <a href="gastos.html" class="accion accion--gasto">
+              <strong>Cargar un gasto</strong>
+              <span>Anotá lo que gastaste y mirá tu historial de gastos.</span>
+            </a>
+          </li>
+          <li>
+            <a href="ingresos.html" class="accion accion--ingreso">
+              <strong>Cargar un ingreso</strong>
+              <span>Registrá sueldos, cobros o changas y su historial.</span>
+            </a>
+          </li>
+          <li>
+            <a href="ahorros.html" class="accion accion--ahorro">
+              <strong>Ver mis ahorros</strong>
+              <span>Seguí el progreso de tu meta de ahorro.</span>
+            </a>
+          </li>
+          <li>
+            <a href="reportes.html" class="accion accion--reporte">
+              <strong>Ver mis reportes</strong>
+              <span>Compará ingresos y gastos mes a mes.</span>
+            </a>
+          </li>
+        </ul>
+      </section>
 
-    <aside id="resumen" class="resumen" aria-label="Resumen del mes">
-      <h2>Tu mes en números</h2>
-      <dl class="resumen-datos">
-        <dt>Saldo actual</dt>
-        <dd id="saldo-actual">$ 0,00</dd>
-        <dt>Ingresos del mes</dt>
-        <dd id="total-ingresos">$ 0,00</dd>
-        <dt>Gastos del mes</dt>
-        <dd id="total-egresos">$ 0,00</dd>
-      </dl>
-    </aside>
+      <aside id="resumen" class="resumen columna-lateral" aria-label="Resumen del mes">
+        <h2>Tu mes en números</h2>
+        <dl class="resumen-datos">
+          <dt>Saldo actual</dt>
+          <dd id="saldo-actual">$ 0,00</dd>
+          <dt>Ingresos del mes</dt>
+          <dd id="total-ingresos">$ 0,00</dd>
+          <dt>Gastos del mes</dt>
+          <dd id="total-egresos">$ 0,00</dd>
+        </dl>
+      </aside>
+    </div>
 
   </main>
 

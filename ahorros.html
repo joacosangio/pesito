@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mis ahorros | Pesito</title>
   <meta name="description" content="Definí tu meta de ahorro y seguí su progreso.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="recursos/style.css">
 </head>
 <body>
@@ -36,39 +39,43 @@
 
     <h1>Mis ahorros</h1>
 
-    <section id="meta-actual" class="columna-principal">
-      <h2>Tu meta de ahorro</h2>
+    <div class="columnas">
+      <div class="columna-principal">
+        <section id="meta-actual" class="panel">
+          <h2>Tu meta de ahorro</h2>
 
-      <article class="tarjeta tarjeta--meta">
-        <h3 id="meta-titulo">Todavía no definiste una meta</h3>
-        <progress id="meta-progreso" value="0" max="100" aria-labelledby="meta-titulo">0%</progress>
-        <p id="meta-detalle" class="tarjeta-detalle">Ahorrado: $ 0,00 de $ 0,00</p>
-      </article>
-    </section>
+          <article class="tarjeta tarjeta--meta">
+            <h3 id="meta-titulo">Todavía no definiste una meta</h3>
+            <progress id="meta-progreso" value="0" max="100" aria-labelledby="meta-titulo">0%</progress>
+            <p id="meta-detalle" class="tarjeta-detalle">Ahorrado: $ 0,00 de $ 0,00</p>
+          </article>
+        </section>
 
-    <section id="definir-meta" class="columna-principal">
-      <h2>Definir una meta</h2>
+        <section id="definir-meta" class="panel">
+          <h2>Definir una meta</h2>
 
-      <form id="form-meta" novalidate>
-        <div class="campo">
-          <label for="meta-nombre">Nombre de la meta</label>
-          <input type="text" id="meta-nombre" name="nombreMeta" placeholder="Ej: Vacaciones, notebook nueva..." required>
-        </div>
+          <form id="form-meta" novalidate>
+            <div class="campo">
+              <label for="meta-nombre">Nombre de la meta</label>
+              <input type="text" id="meta-nombre" name="nombreMeta" placeholder="Ej: Vacaciones, notebook nueva..." required>
+            </div>
 
-        <div class="campo">
-          <label for="meta-monto">Monto objetivo</label>
-          <input type="number" id="meta-monto" name="montoMeta" placeholder="0.00" min="1" step="0.01" required>
-        </div>
+            <div class="campo">
+              <label for="meta-monto">Monto objetivo</label>
+              <input type="number" id="meta-monto" name="montoMeta" placeholder="0.00" min="1" step="0.01" required>
+            </div>
 
-        <button type="submit" class="boton-cta">Guardar meta</button>
-        <p id="meta-feedback" class="feedback" aria-live="polite"></p>
-      </form>
-    </section>
+            <button type="submit" class="boton-cta">Guardar meta</button>
+            <p id="meta-feedback" class="feedback" aria-live="polite"></p>
+          </form>
+        </section>
+      </div>
 
-    <aside id="ayuda-metas" class="consejo" aria-label="Consejo sobre metas">
-      <h2>¿Cómo elegir una buena meta?</h2>
-      <p>Una meta realista se cumple en 3 a 6 meses de ahorro constante. Empezá con montos chicos y andá ajustándolos.</p>
-    </aside>
+      <aside id="ayuda-metas" class="consejo columna-lateral" aria-label="Consejo sobre metas">
+        <h2>¿Cómo elegir una buena meta?</h2>
+        <p>Una meta realista se cumple en 3 a 6 meses de ahorro constante. Empezá con montos chicos y andá ajustándolos.</p>
+      </aside>
+    </div>
 
   </main>
 
